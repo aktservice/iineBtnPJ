@@ -4,7 +4,7 @@
   "description": "use gas",
   "main": "index.js",
   "dependencies": {
-    "@types/google-apps-script": "^1.0.91"
+    "@types/google-apps-script": "^1.0.93"
   },
   "devDependencies": {},
   "scripts": {

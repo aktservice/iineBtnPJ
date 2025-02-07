@@ -1,63 +1,33 @@
-# gasVanillaWebAppTemplate
+# モチベーションを上げる PJ
 
-## GASWebApplication を LOCAL で構築する為のテンプレートです
+## ウェブアプリのリンクを使ってスプレッドシートにハートを送る
 
-### 使用しているソフト等
+### whats is this?
 
-- VsCode(editor)
-  - VsCode Extension: more(debug)
-- TypeScript(js is also fine)
-- Nodejs(npm or yarn)
-  - @types/google-apps-script
-  - Google/Clasp(global)
-- git(use git bash)
+ウェブアプリをデプロイしてウェブアプリにアクセスすると
+スプレッドシートにハートを送る
 
-### ざっくりとした流れ
+### webapp のパラメータ
 
-src フォルダで開発 → clasp push で 反映
-
-### 使い方
-
-Vscode をインストール（User インストールの場合は管理者権限は不要です）  
-[Vscode](https://code.visualstudio.com/)  
-nodejs(npm) をインストール(要管理者権限)  
-[nodejs](https://nodejs.org/ja/)  
-nodejs と一緒にインストールされますが一応  
-[npm](https://www.npmjs.com/)  
-git をインストール(要管理者権限)  
-[git](https://git-scm.com/)  
-3 点をインストール後に
-
-1. このプロジェクトをテンプレートに github 上に Repository を作成
-1. Repository の URL をコピー
-
-```bash
-#bash or powershell
-# git bash を開いて下記のコマンドを打ち込みして下さい（コピペＯＫ）
-git clone コピーしたURLを貼り付け
-cd  yourRepoName
-npm install
-code ./
-#ここでVsCodeが開くのでそこから開発
-# clasp コマンドをGlobalにインストールした状態で
-#Googleアカウントへログイン
-clasp login
-#ログイン成功後にプロジェクトのScriptIDを.clasp.jsonのscriptIdに記入して
-clasp open
-# .clasp.jsonに記載されたIdを開くので確認後
-clasp push
-# ウェブアプリとしてデプロイ
-clasp deploy --description "description"
-# open webapp
-clasp open --webapp
-# version を聞かれるので適宜
-
-#.clasp.jsonをRepositoryにPUSHしたくないので
-#パスは適宜変更してください
-git rm --cached .clasp.json
-#開発をRemoteへ保存
-git add ./
-# initial commit
-git commit -m "this development commit message"
-git push origin main
 ```
+https://script.google.com/a/macros/aktio.co.jp/s/ランダム文字列/exec?
+//pram1
+status=(ok or ng)
+//pram2
+row={1,2.........N}
+//exmple
+https://script.google.com/a/macros/aktio.co.jp/s/ランダム文字列/exec?status=ok&row=1
+
+```
+
+### 使用方法と準備
+
+- スプレッドシートの準備
+  1. シート名称はそのままのシート 1 に対応
+  1. １列目には行番号等集計に必要ない文字を入れる
+  1. アプリにアクセスがあると１列目にハートが追加される
+  1. アプリのステータス部分と row 部分に下記のように追加
+  ```
+  configシートA1セルにURLを貼り付け
+  =HYPERLINK(config!$A$1&"?status=ok&row="&row(),"OKの場合")
+  ```

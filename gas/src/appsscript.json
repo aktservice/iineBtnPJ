@@ -1,16 +1,12 @@
 {
   "timeZone": "Asia/Tokyo",
   "dependencies": {
-    "enabledAdvancedServices": [
-      {
-        "userSymbol": "Drive",
-        "version": "v3",
-        "serviceId": "drive"
-      },
-      { "userSymbol": "Sheets", "version": "v4", "serviceId": "sheets" }
-    ]
+    "enabledAdvancedServices": []
   },
-  "webapp": { "access": "MYSELF", "executeAs": "USER_ACCESSING" },
+  "webapp": {
+    "executeAs": "USER_DEPLOYING",
+    "access": "DOMAIN"
+  },
   "exceptionLogging": "STACKDRIVER",
   "runtimeVersion": "V8"
 }
