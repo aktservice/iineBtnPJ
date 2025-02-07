@@ -1,0 +1,15 @@
+{
+  "name": "gas-vanilla-webapp",
+  "version": "1.0.0",
+  "description": "use gas",
+  "main": "index.js",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.91"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yoshikoro",
+  "license": "ISC"
+}
